@@ -24,9 +24,9 @@ export default class BanchoProcessor {
     }
 
     public async addLobby(
-        lobbyId: number,
         message: Message,
     ) {
+        const [lobbyId, bestOf] = message.params;
         let channel: BanchoMultiplayerChannel = this.bancho.getChannel(`#mp_${lobbyId}`) as BanchoMultiplayerChannel;
 
         await channel.join().catch(() => {return message.reply(`
@@ -35,7 +35,7 @@ export default class BanchoProcessor {
 
         await channel.lobby.updateSettings();
 
-        const lobby = new Lobby(channel, 5);
+        const lobby = new Lobby(channel, Number(bestOf));
 
         this.tournamentLobbies.push(lobby);
 
@@ -66,8 +66,6 @@ export default class BanchoProcessor {
             } else {
                 return message.replyToMatchInfo("Round ended");
             }
-
-            //console.log(lobby.channel.lobby.scores);
 
             if (
                 ((lobby.bestOf + 1) / 2 === lobby.team1Score) ||

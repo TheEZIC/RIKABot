@@ -27,6 +27,6 @@ export default class  ListenLobbyCommand extends Command<ITestCommandArgs> {
 
         if (!permission) return this.throwWrongPermission(message);
 
-        await this.args.bancho.addLobby(Number(message.params[0]), message);
+        await this.args.bancho.addLobby(message);
     }
 }
