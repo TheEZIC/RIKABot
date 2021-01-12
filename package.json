@@ -1,0 +1,26 @@
+{
+  "name": "ORLST-Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist",
+    "start:ts": "ts-node index.ts",
+    "start:tsdev": "ts-node-dev index.ts --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bancho.js": "^0.9.7",
+    "discord.js": "^12.5.1",
+    "sqlite3": "^5.0.0",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
